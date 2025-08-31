@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio{{NOME}}</title>
+  <meta name="description" content="Portfólio profissional - Front-end e Mobile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="./src/css/style.css"> 
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" aria-label="Barra de navegação">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="./src/assets/img/logo.png" alt="Logo de Tatiane Lima" class="logo" />
+        <span class="brand-dot" aria-hidden="true"></span><span id="brand-name">{{NOME}}</span></div>
+      <nav class="nav" aria-label="Links principais">
+        <a href="#home" class="active">HOME</a>
+        <a href="#projects">PROJETOS</a>
+        <a href="#about">SOBRE</a>
+        <a href="#contact">CONTATO</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">Tema</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div>
+        <div class="kicker">Soluções Criativas & Desenvolvimento Front-end</div>
+        <h1 id="headline">{{NOME}}, {{CIDADE}} — Desenvolvedora Front‑end.</h1>
+        <p class="subtitle">Crio experiências web modernas, acessíveis e performáticas. Foco em componentes reutilizáveis, arquitetura limpa e boas práticas.</p>
+        <div class="cta">
+          <a href="https://sites.google.com/view/rededeapoio-inteligente" target="_blank" class="btn btn-primary">Projetos em Destaque</a>
+          <a href="#contact" class="btn btn-outline">Contato</a>
+        </div>
+        <div class="hero-card reveal" style="margin-top:18px">
+          <span class="pill">Disponível para novas oportunidades</span>
+          <div class="hero-meta">Conecte-se comigo: <a id="lnkGithub" href="https://github.com/Tattianerl" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>  <a id="lnkLinkedin" href="linkedin.com/in/tati-lima85" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a> <a id="lnkInstagram" href="https://www.instagram.com/limatati1/" target="_blank" rel="noreferrer"> <i class="fab fa-instagram"></i></a></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="hero-card" role="img" aria-label="Avatar/ilustração">
+            <img src="./src/assets/img/profile.jpeg" 
+                alt="Foto de Tatiane Lima" 
+                class="hero-avatar">
+          <strong>Olá! 👋</strong>
+          <p>Sou apaixonada por transformar ideias em interfaces funcionais. Vamos construir algo incrível?</p>
+          <a id="btnCVTop" class="btn btn-primary" href="./src/assets/cv/CV_TatianeRL.pdf" target="_blank" rel="noreferrer">Baixar Currículo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Techs -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Conhecimento nas principais tecnologias do mercado</h2>
+      <p class="section-sub">Stack focada em Front‑end moderno, integração com APIs e versionamento.</p>
+      <div class="badges">
+        <span class="badge">HTML5</span>
+        <span class="badge">CSS3</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">React</span>
+        <span class="badge">React Native</span>
+        <span class="badge">Git & GitHub</span>
+        <span class="badge">Designer-UX</span>
+        <span class="badge">Acessibilidade (a11y)</span>
+        <span class="badge">Responsividade</span>
+        <span class="badge">ChatGPT</span>
+        <span class="badge">SEO Básico</span>
+        <span class="badge">MySQL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projetos</h2>
+      <div class="grid" id="projectsGrid" aria-live="polite"></div>
+      <div style="margin-top:16px">
+        <a id="allProjectsLink" href="github.com/Tattianerl" target="_blank" class="btn btn-outline">Ver todos os projetos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">Sobre mim</h2>
+    <div class="about">
+      
+      <!-- Painel 1: Descrição e idiomas -->
+      <div class="panel reveal">
+        <p id="aboutText">
+          Descrição sobre você e suas habilidades e experiências. Escreva um parágrafo claro destacando objetivos, principais tecnologias e forma de trabalho.
+        </p>
+        <div class="list">
+          <div class="kv"><strong>Idioma</strong><span id="idioma1">Português — Nativo</span></div>
+          <div class="kv"><strong>Idioma</strong><span id="idioma2">Inglês — {{NIVEL_INGLES}}</span></div>
+        </div>
+      </div>
+
+      <!-- Painel 2: Conecte-se + Formação + Experiências + Habilidades -->
+      <div class="panel reveal">
+        <h3>Conecte-se comigo</h3>
+        <div class="stack">
+          <a id="btnGithub" class="btn btn-ghost" href="github.com/Tattianerl" target="_blank">GitHub</a>
+          <a id="btnLinkedin" class="btn btn-ghost" href="linkedin.com/in/tati-lima85" target="_blank">LinkedIn</a>
+          <a id="btnInstagram" class="btn btn-ghost" href="https://www.instagram.com/limatati1/" target="_blank">Instagram</a>
+          <a id="btnCV" class="btn btn-primary" href="#" target="_blank">Currículo (PDF)</a>
+        </div>
+
+        <hr class="divider">
+
+        <h3>Formação</h3>
+        <div class="timeline" id="eduList"></div>
+
+        <h3>Experiências</h3>
+        <div class="timeline" id="expList"></div>
+
+        <h3>Habilidades</h3>
+        <div class="timeline" id="courseList"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contate-me</h2>
+      <div class="contact-grid">
+        <div class="card-cta reveal">
+          <p>Estou disponível para serviços e novas conexões. Envie um e-mail ou chame nas redes sociais.</p>
+          <div class="stack" style="margin-top:10px">
+            <a id="mailto" class="btn btn-primary" href="#">E-mail</a>
+            <a id="btnContactLinkedin" class="btn btn-outline" href="#" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <form id="contactForm" class="reveal" onsubmit="handleSubmit(event)">
+          <input class="input" name="name" placeholder="Seu nome" required />
+          <input class="input" type="email" name="email" placeholder="Seu e-mail" required />
+          <textarea class="input" name="message" placeholder="Sua mensagem" required></textarea>
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container"><span id="footYear"></span> · Todos os Direitos Reservados. <span id="footName">{{NOME}}</span>. Desenvolvido por <span id="footDev">{{NOME}}</span>.</div>
+  </footer>
+
+  <script src="./src/js/script.js"></script>
+</body>
+</html>
