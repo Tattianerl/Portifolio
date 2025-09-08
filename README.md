@@ -6,10 +6,10 @@ Bem-vindo ao meu **portfólio online**, desenvolvido para apresentar meus projet
 
 ## 🔗 Links Importantes
 
-- **Portfólio Online:** [Link para o site](#)  
-- **GitHub:** [https://github.com/Tattianerl](https://github.com/Tattianerl)  
+- **Portfólio Online:** [Link para o site](https://tattianerl.github.io/Portifolio/)  
+- **GitHub:** [Repositório](https://github.com/Tattianerl/Portifolio.git)  
 - **LinkedIn:** [https://www.linkedin.com/in/tati-lima85](https://www.linkedin.com/in/tati-lima85)  
-- **Currículo (PDF):** [CV_TatianeRL.pdf](./src/assets/cv/CV_TatianeRL.pdf)  
+- **Currículo (PDF):** [CV_TatianeRL](./src/assets/cv/CV_TatianeRL.pdf)  
 
 ---
 
@@ -17,8 +17,8 @@ Bem-vindo ao meu **portfólio online**, desenvolvido para apresentar meus projet
 
 - **Front-end:** HTML5, CSS3, JavaScript (ES6+), React, React Native  
 - **Versionamento:** Git & GitHub  
-- **Design:** UX Design, Responsividade, Acessibilidade (a11y)  
-- **Integração:** Consumo de APIs (GitHub Projects)  
+- **Design:** UX Design, Responsividade, Acessibilidade  
+- **Integração:** Consumo de APIs  
 - **Ferramentas Auxiliares:** Figma, ChatGPT, VS Code  
 
 ---
@@ -57,8 +57,7 @@ portifolio/
 │ ├─ css/  
 │ │ └─ style.css   
 │ └─ js/  
-│ └─ script.js   
-│
+│   └─ script.js   
 ├─ index.html   
 └─ README.md   
 
@@ -73,10 +72,6 @@ portifolio/
 
 ## Contato
 
-E-mail: tattine85@hotmail.com
-
-GitHub: https://github.com/Tattianerl
-
-LinkedIn: https://www.linkedin.com/in/tati-lima85
-
+E-mail: tattiane85@hotmail.com  
+whatssap:(21)9989-77628  
 Instagram: https://www.instagram.com/limatati1/
