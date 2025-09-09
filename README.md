@@ -3,6 +3,12 @@
 Bem-vindo ao meu **portfólio online**, desenvolvido para apresentar meus projetos, habilidades e experiências como Desenvolvedora Front-end. Este projeto demonstra conhecimentos em **HTML, CSS, JavaScript, React** e **React Native**, com foco em **UI moderna, responsividade e boas práticas de desenvolvimento**.
 
 ---
+## 📱 Acesse meu Portfólio pelo QR Code  
+
+Escaneie o QR Code abaixo para abrir diretamente o site do meu portfólio:  
+
+<img src="./src/assets/img/qr_portifolio.png" width="150" alt="QR Code do Portfólio">
+
 
 ## 🔗 Links Importantes
 
@@ -20,7 +26,7 @@ Bem-vindo ao meu **portfólio online**, desenvolvido para apresentar meus projet
 - **Design:** UX Design, Responsividade, Acessibilidade  
 - **Integração:** Consumo de APIs  
 - **Ferramentas Auxiliares:** Figma, ChatGPT, VS Code  
-
+- **Python**: Geração de QRcode
 ---
 
 ## ⚡ Funcionalidades
@@ -48,11 +54,17 @@ Bem-vindo ao meu **portfólio online**, desenvolvido para apresentar meus projet
 
 ## 🛠️ Estrutura do Projeto
 
-portifolio/  
+portifolio-frontend/  
 │  
+├─ qr_code/    
+│  └─ logo_qr.png/   
+│  └─qrcode_portifolio.py/     
 ├─ src/  
 │ ├─ assets/  
-│ │ ├─ img/   
+│ │ ├─ img/  
+│ │    └─ logo.png/   
+│ │    └─ profile.jpeg/   
+│ │    └─qr_portifolio.py/      
 │ │ └─ cv/  
 │ ├─ css/  
 │ │ └─ style.css   
@@ -73,5 +85,5 @@ portifolio/
 ## Contato
 
 E-mail: tattiane85@hotmail.com  
-whatssap:(21)9989-77628  
+whatssap: (21)9989-77628  
 Instagram: https://www.instagram.com/limatati1/
