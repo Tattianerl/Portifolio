@@ -1,4 +1,24 @@
-// ===== CONFIGURAÇÃO RÁPIDA =====
+  const toggleBtn = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // 1. Carregar preferência salva no localStorage
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    body.classList.add("light-theme");
+  }
+
+  // 2. Alternar tema no clique
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light-theme");
+
+    // 3. Salvar a preferência
+    if (body.classList.contains("light-theme")) {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+  });
+
 const config = {
   nome: 'Tatiane Lima',
   cidade: 'Rio de Janeiro RJ',
@@ -52,12 +72,11 @@ const langIcons = {
 // ===== BUSCAR PROJETOS DO GITHUB COM LINK AUTOMÁTICO DE DEPLOY =====
 async function fetchGitHubProjects() {
   try {
-    const username = 'Tattianerl'; // seu usuário GitHub
+    const username = 'Tattianerl'; 
     const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
     const data = await res.json();
 
     return data.map(repo => {
-      // Se houver homepage configurada, usa; se não, gera link automático do GitHub Pages
       const previewLink = repo.homepage && repo.homepage !== '' 
         ? repo.homepage 
         : `https://${username}.github.io/${repo.name}/`;
@@ -106,7 +125,7 @@ async function hydrate() {
   // Footer
   $('#footYear').textContent = new Date().getFullYear();
   $('#footName').textContent = config.nome; 
-  $('#footDev').textContent = config.nome;
+ 
 
   // Formação
   const eduWrap = $('#eduList'); eduWrap.innerHTML = '';
@@ -156,7 +175,7 @@ async function hydrate() {
       </div>
     `;
     grid.appendChild(card);
-    io.observe(card); // animação reveal
+    io.observe(card); 
   });
 }
 
