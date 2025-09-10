@@ -1,4 +1,4 @@
-  // ===== UTILITÁRIOS =====
+// ===== UTILITÁRIOS =====
 const $ = (s, root=document) => root.querySelector(s);
 const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 
@@ -13,14 +13,14 @@ const config = {
   cv: './src/assets/cv/CV_TatianeRL.pdf',
   allProjects: 'https://github.com/Tattianerl?tab=repositories',
   ingles: 'Próximo passos',
-  sobre: 'Sou Tatiane Lima, recém-formada em Sistemas para Internet ...',
+  sobre: 'Sou formada em Sistemas para Internet e estou em transição de carreira para a área de tecnologia. Tenho paixão por transformar ideias em soluções digitais, com foco em desenvolvimento front-end. Atualmente, dedico-me ao aprimoramento das minhas habilidades em HTML, CSS, JavaScript e React, criando projetos práticos que unem design, usabilidade e boas práticas de código.Busco minha primeira oportunidade na área para aplicar meus conhecimentos, aprender com profissionais experientes e contribuir para o crescimento da equipe e da empresa.',
   formacoes: [
-    { titulo: 'Sistemas para Internet', detalhe: 'Tecnólogo', periodo: '2022 — 2024', instituicao: 'Estácio de Sá' },
+    { titulo: 'Sistemas para Internet', detalhe: 'Tecnólogo', periodo: '2022 — 2024', instituicao: 'Universidade Estácio de Sá' },
     { titulo: 'PROGRAMAÇÃO DE SISTEMAS DE INFORMAÇÃO.', detalhe: 'Certificação', periodo: '2024', instituicao: 'Universidade Estácio de Sá' },
-    // ... demais formações
+    { titulo: 'Certificado Profissional de UX Design do Google', detalhe: 'Certificação', periodo: '2024', instituicao: 'Coursera' },
   ],
   experiencias: [
-    { cargo: 'Vendedora/Atendente de loja', periodo: '2011 — Atual', empresa: 'Di Santinni', desc: ['Atuei no atendimento direto ...'] },
+    { cargo: 'Vendedora/Atendente de loja', periodo: '2011 — Atual', empresa: 'Di Santinni', desc: ['Minha experiência em vendas me ajudou a desenvolver uma escuta ativa, empatia e comunicação eficiente — habilidades que uso diariamente para criar projetos digitais que realmente atendam às necessidades das pessoas. Saber ouvir, entender problemas e oferecer soluções é algo que levo do mundo das vendas para o desenvolvimento front-end.'] },
   ],
   cursos: [
     { nome: "Marketing Pessoal", instituicao: "DIO", periodo: "10/2024" },
@@ -30,7 +30,6 @@ const config = {
     { nome: "Engenharia de Prompt", instituicao: "DIO", periodo: "09/2024" }
   ]
 };
-
 
 // ===== ÍCONES DAS LINGUAGENS =====
 const langIcons = { 
@@ -49,7 +48,6 @@ const langIcons = {
 // ===== THEME TOGGLE COM LOCALSTORAGE =====
 const toggleBtn = $('#themeToggle');
 const body = document.body;
-
 const savedTheme = localStorage.getItem('theme');
 if(savedTheme === 'light') body.classList.add('light-theme');
 
@@ -67,10 +65,12 @@ const io = new IntersectionObserver((entries) => {
 async function fetchGitHubProjects() {
   try {
     const res = await fetch('https://api.github.com/users/Tattianerl/repos?sort=updated&per_page=10');
+    if (!res.ok) throw new Error("Falha ao buscar projetos do GitHub");
     const data = await res.json();
+
     return data.map(repo => ({
       titulo: repo.name,
-      descricao: repo.description || 'Sem descrição',
+      descricao: repo.description || 'Descrição em breve...',
       features: [],
       preview: repo.homepage && repo.homepage !== '' ? repo.homepage : `https://Tattianerl.github.io/${repo.name}/`,
       repo: repo.html_url,
@@ -86,7 +86,7 @@ async function hydrate() {
   // Identidade
   $('#brand-name').textContent = config.nome;
   document.title = `Portfólio - ${config.nome}`;
-  $('#headline').textContent = `${config.nome} Desenvolvedora Front‑end.`;
+  $('#headline').textContent = `${config.nome} Desenvolvedora Front-end.`;
   $('#aboutText').textContent = config.sobre;
   $('#idioma2').textContent = `Inglês — ${config.ingles}`;
   $('#allProjectsLink').href = config.allProjects;
@@ -127,6 +127,12 @@ async function hydrate() {
   grid.innerHTML = 'Carregando projetos...';
   const projetos = await fetchGitHubProjects();
   grid.innerHTML = '';
+
+  if (projetos.length === 0) {
+    grid.innerHTML = "<p>Não foi possível carregar os projetos agora. 🚧</p>";
+    return;
+  }
+
   projetos.slice(0,6).forEach(p => {
     const card = document.createElement('article');
     card.className = 'card reveal';
@@ -135,17 +141,17 @@ async function hydrate() {
       <small class="pill">Projeto</small>
       <h3>${p.titulo}</h3>
       <p>${p.descricao}</p>
-      ${p.linguagem ? `<i class="${langIcons[p.linguagem] || ''}" style="font-size:28px; margin-right:5px;"></i>` : ''}
+      ${p.linguagem ? `<i class="${langIcons[p.linguagem] || 'devicon-code-plain'}" aria-label="Linguagem ${p.linguagem}" style="font-size:28px; margin-right:5px;"></i>` : ''}
       <div class="card-actions">
-        <a class="btn btn-outline" href="${p.preview}" target="_blank">Prévia do Projeto</a>
-        <a class="btn btn-primary" href="${p.repo}" target="_blank">Repositório</a>
+        <a class="btn btn-outline" href="${p.preview}" target="_blank" rel="noopener noreferrer" role="button" aria-label="Ver prévia de ${p.titulo}">Prévia do Projeto</a>
+        <a class="btn btn-primary" href="${p.repo}" target="_blank" rel="noopener noreferrer" role="button" aria-label="Ver repositório de ${p.titulo}">Repositório</a>
       </div>`;
     grid.appendChild(card);
     io.observe(card);
   });
 }
 
-// ===== FORMULÁRIO  COM EMAILJS =====
+// ===== FORMULÁRIO COM EMAILJS =====
 const EMAILJS_PUBLIC_KEY = "S9aBJ2ISTkcA_j2kq";  // sua Public Key
 const EMAILJS_SERVICE_ID = "service_1alk4es";    // Service ID
 const EMAILJS_TEMPLATE_ID = "template_1mvb84d";  // Template ID
@@ -161,13 +167,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     entries.forEach(en => {
       if(en.isIntersecting){
         navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${en.target.id}`));
+        // Atualizar título da página para SEO
+        document.title = `${config.nome} | ${en.target.id.charAt(0).toUpperCase() + en.target.id.slice(1)}`;
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sections.forEach(s => spy.observe(s));
 
   // EmailJS
- emailjs.init(EMAILJS_PUBLIC_KEY);
+  emailjs.init(EMAILJS_PUBLIC_KEY);
 
   $('#contactForm').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -178,6 +186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     btn.disabled = true;
     btn.textContent = "Enviando...";
     feedback.textContent = "";
+    feedback.setAttribute("aria-live", "polite");
 
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
