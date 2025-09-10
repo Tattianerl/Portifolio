@@ -1,24 +1,8 @@
-  const toggleBtn = document.getElementById("themeToggle");
-  const body = document.body;
+  // ===== UTILITÁRIOS =====
+const $ = (s, root=document) => root.querySelector(s);
+const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 
-  // 1. Carregar preferência salva no localStorage
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    body.classList.add("light-theme");
-  }
-
-  // 2. Alternar tema no clique
-  toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("light-theme");
-
-    // 3. Salvar a preferência
-    if (body.classList.contains("light-theme")) {
-      localStorage.setItem("theme", "light");
-    } else {
-      localStorage.setItem("theme", "dark");
-    }
-  });
-
+// ===== CONFIGURAÇÃO DO PORTFÓLIO =====
 const config = {
   nome: 'Tatiane Lima',
   cidade: 'Rio de Janeiro RJ',
@@ -29,18 +13,14 @@ const config = {
   cv: './src/assets/cv/CV_TatianeRL.pdf',
   allProjects: 'https://github.com/Tattianerl?tab=repositories',
   ingles: 'Próximo passos',
-  sobre: 'Sou Tatiane Lima, recém-formada em Sistemas para Internet e em transição de carreira, saindo do setor de vendas para o mundo da tecnologia. Ao longo da minha experiência como vendedora e atendente, desenvolvi habilidades essenciais como comunicação assertiva, empatia, negociação e foco em resultados, que hoje aplico na criação de soluções digitais centradas no usuário. Atualmente, meu foco é em desenvolvimento Front-end, trabalhando com HTML, CSS, JavaScript, React e React Native. Tenho paixão por criar interfaces modernas, acessíveis e responsivas, seguindo boas práticas de código, arquitetura limpa e componentes reutilizáveis. Busco oportunidades para aplicar meus conhecimentos, aprender continuamente e contribuir para projetos que unam criatividade e tecnologia.',
+  sobre: 'Sou Tatiane Lima, recém-formada em Sistemas para Internet ...',
   formacoes: [
     { titulo: 'Sistemas para Internet', detalhe: 'Tecnólogo', periodo: '2022 — 2024', instituicao: 'Estácio de Sá' },
     { titulo: 'PROGRAMAÇÃO DE SISTEMAS DE INFORMAÇÃO.', detalhe: 'Certificação', periodo: '2024', instituicao: 'Universidade Estácio de Sá' },
-    { titulo: 'PROGRAMAÇÃO PARA INTERNET', detalhe: 'Certificação', periodo: '2024', instituicao: 'Universidade Estácio de Sá' },
-    { titulo: 'Heineken - Inteligência Artificial Aplicada a Dados com Copilot', detalhe: 'Certificação', periodo: '04-2025', instituicao: 'Parceria entre a Heineken e a plataforma DIO.me' },
-    { titulo: 'CAIXA - IA GENERATIVA COM MICROSOFT COPILOT', detalhe: 'Certificação', periodo: '01-2025', instituicao: 'Parceria entre a Caixa e a plataforma DIO' },
-    { titulo: 'XP INC. - FULL STACK DEVELOPER', detalhe: 'Certificação', periodo: '13-04-2025', instituicao: 'Parceria entre XP Inc e DIO.me' },
-    { titulo: 'DESIGNER DE UX', detalhe: 'Certificação', periodo: '2023', instituicao: 'Designer de ux do Google' },
+    // ... demais formações
   ],
   experiencias: [
-    { cargo: 'Vendedora/Atendente de loja', periodo: '2011 — Atual', empresa: 'Di Santinni', desc: ['Atuei no atendimento direto ao cliente, identificando necessidades e oferecendo soluções adequadas. Realizo atividades de organização de estoque, reposição de produtos, abertura e fechamento de caixa. Durante minha experiência, desenvolvi competências essenciais como comunicação assertiva, negociação, empatia, trabalho em equipe e foco em resultados, contribuindo para o alcance de metas e para a fidelização dos clientes.'] },
+    { cargo: 'Vendedora/Atendente de loja', periodo: '2011 — Atual', empresa: 'Di Santinni', desc: ['Atuei no atendimento direto ...'] },
   ],
   cursos: [
     { nome: "Marketing Pessoal", instituicao: "DIO", periodo: "10/2024" },
@@ -51,9 +31,6 @@ const config = {
   ]
 };
 
-// ===== UTILITÁRIOS =====
-const $ = (s, root=document) => root.querySelector(s);
-const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 
 // ===== ÍCONES DAS LINGUAGENS =====
 const langIcons = { 
@@ -69,36 +46,42 @@ const langIcons = {
   "Go": "devicon-go-plain colored"
 };
 
-// ===== BUSCAR PROJETOS DO GITHUB COM LINK AUTOMÁTICO DE DEPLOY =====
+// ===== THEME TOGGLE COM LOCALSTORAGE =====
+const toggleBtn = $('#themeToggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme === 'light') body.classList.add('light-theme');
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('light-theme');
+  localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+});
+
+// ===== SCROLL REVEAL =====
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('on'); });
+}, { threshold: 0.18 });
+
+// ===== POPULAÇÃO DINÂMICA =====
 async function fetchGitHubProjects() {
   try {
-    const username = 'Tattianerl'; 
-    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
+    const res = await fetch('https://api.github.com/users/Tattianerl/repos?sort=updated&per_page=10');
     const data = await res.json();
-
-    return data.map(repo => {
-      const previewLink = repo.homepage && repo.homepage !== '' 
-        ? repo.homepage 
-        : `https://${username}.github.io/${repo.name}/`;
-
-      return {
-        titulo: repo.name,
-        descricao: repo.description || 'Sem descrição',
-        features: [],
-        preview: previewLink,
-        repo: repo.html_url,
-        linguagem: repo.language
-      };
-    });
+    return data.map(repo => ({
+      titulo: repo.name,
+      descricao: repo.description || 'Sem descrição',
+      features: [],
+      preview: repo.homepage && repo.homepage !== '' ? repo.homepage : `https://Tattianerl.github.io/${repo.name}/`,
+      repo: repo.html_url,
+      linguagem: repo.language
+    }));
   } catch (err) {
     console.error('Erro ao buscar repositórios do GitHub:', err);
     return [];
   }
 }
 
-
-
-// ===== FUNÇÃO PRINCIPAL DE POPULAÇÃO =====
 async function hydrate() {
   // Identidade
   $('#brand-name').textContent = config.nome;
@@ -107,44 +90,32 @@ async function hydrate() {
   $('#aboutText').textContent = config.sobre;
   $('#idioma2').textContent = `Inglês — ${config.ingles}`;
   $('#allProjectsLink').href = config.allProjects;
-  $('#btnCV').href = config.cv; 
-  $('#btnCVTop').href = config.cv;
-
-  // Links
-  $('#lnkGithub').href = config.github; 
-  $('#btnGithub').href = config.github;
-  $('#lnkLinkedin').href = config.linkedin; 
-  $('#btnLinkedin').href = config.linkedin; 
-  $('#btnContactLinkedin').href = config.linkedin;
-  if (config.instagram && config.instagram !== '#') { 
-    $('#lnkInstagram').href = config.instagram; 
-    $('#btnInstagram').href = config.instagram; 
-  }
+  $('#btnCV').href = $('#btnCVTop').href = config.cv;
+  $('#lnkGithub').href = $('#btnGithub').href = config.github;
+  $('#lnkLinkedin').href = $('#btnLinkedin').href = $('#btnContactLinkedin').href = config.linkedin;
+  if(config.instagram) $('#lnkInstagram').href = $('#btnInstagram').href = config.instagram;
   $('#mailto').href = `mailto:${config.email}`;
-
-  // Footer
   $('#footYear').textContent = new Date().getFullYear();
-  $('#footName').textContent = config.nome; 
- 
+  $('#footName').textContent = config.nome;
 
   // Formação
   const eduWrap = $('#eduList'); eduWrap.innerHTML = '';
-  config.formacoes.forEach(e => {
+  config.formacoes.forEach(f => {
     const el = document.createElement('div'); el.className='tl-item';
-    el.innerHTML = `<h4>${e.titulo} — <small>${e.instituicao}</small></h4><small>${e.periodo} · ${e.detalhe || ''}</small>`;
+    el.innerHTML = `<h4>${f.titulo} — <small>${f.instituicao}</small></h4><small>${f.periodo} · ${f.detalhe || ''}</small>`;
     eduWrap.appendChild(el);
   });
 
   // Experiências
   const expWrap = $('#expList'); expWrap.innerHTML = '';
-  config.experiencias.forEach(x => {
+  config.experiencias.forEach(exp => {
     const el = document.createElement('div'); el.className='tl-item';
-    el.innerHTML = `<h4>${x.cargo} — <small>${x.empresa}</small></h4><small>${x.periodo}</small>${x.desc?.length? `<ul class='tl-list'>${x.desc.map(i=>`<li>${i}</li>`).join('')}</ul>`: ''}`;
+    el.innerHTML = `<h4>${exp.cargo} — <small>${exp.empresa}</small></h4><small>${exp.periodo}</small>${exp.desc?.length ? `<ul class='tl-list'>${exp.desc.map(i=>`<li>${i}</li>`).join('')}</ul>` : ''}`;
     expWrap.appendChild(el);
   });
 
   // Cursos
-  const cWrap = $('#courseList'); cWrap.innerHTML = ''; 
+  const cWrap = $('#courseList'); cWrap.innerHTML = '';
   config.cursos.forEach(c => {
     const el = document.createElement('div'); el.className = 'tl-item';
     el.innerHTML = `<h4>${c.nome} — <small>${c.instituicao}</small></h4><small>${c.periodo}</small>`;
@@ -155,71 +126,71 @@ async function hydrate() {
   const grid = $('#projectsGrid');
   grid.innerHTML = 'Carregando projetos...';
   const projetos = await fetchGitHubProjects();
-
-  // Limitar a 6 cards
-  const projetosLimitados = projetos.slice(0, 6);
   grid.innerHTML = '';
-
-  projetosLimitados.forEach(p => {
+  projetos.slice(0,6).forEach(p => {
     const card = document.createElement('article');
     card.className = 'card reveal';
     card.setAttribute('aria-label', `Projeto ${p.titulo}`);
     card.innerHTML = `
-      <small class="pill" style="background:rgba(35,196,227,.15); color:#c9f2fb">Projeto</small>
+      <small class="pill">Projeto</small>
       <h3>${p.titulo}</h3>
       <p>${p.descricao}</p>
       ${p.linguagem ? `<i class="${langIcons[p.linguagem] || ''}" style="font-size:28px; margin-right:5px;"></i>` : ''}
       <div class="card-actions">
-        <a class="btn btn-outline" ${p.preview && p.preview!=='#' ? `href='${p.preview}' target='_blank'` : 'href="#" aria-disabled="true"'}>Prévia do Projeto</a>
-        <a class="btn btn-primary" ${p.repo && p.repo!=='#' ? `href='${p.repo}' target='_blank'` : 'href="#" aria-disabled="true"'}>Repositório</a>
-      </div>
-    `;
+        <a class="btn btn-outline" href="${p.preview}" target="_blank">Prévia do Projeto</a>
+        <a class="btn btn-primary" href="${p.repo}" target="_blank">Repositório</a>
+      </div>`;
     grid.appendChild(card);
-    io.observe(card); 
+    io.observe(card);
   });
 }
 
-// ===== UX Enhancements =====
-function handleSubmit(e){
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  alert(`Obrigada, ${data.name}! Vou responder em breve.`);
-  e.target.reset();
-}
+// ===== FORMULÁRIO  COM EMAILJS =====
+const EMAILJS_PUBLIC_KEY = "S9aBJ2ISTkcA_j2kq";  // sua Public Key
+const EMAILJS_SERVICE_ID = "service_1alk4es";    // Service ID
+const EMAILJS_TEMPLATE_ID = "template_1mvb84d";  // Template ID
 
-// Scroll reveal
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(en => {
-    if (en.isIntersecting) en.target.classList.add('on');
-  })
-}, { threshold: .18 });
-
-// Theme toggle
-function setTheme(mode){
-  document.documentElement.dataset.theme = mode;
-  localStorage.setItem('theme', mode);
-}
-const saved = localStorage.getItem('theme'); 
-if(saved) setTheme(saved);
-document.getElementById('themeToggle').addEventListener('click', ()=>{
-  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  setTheme(next);
-});
-
-// Inicialização
-window.addEventListener('DOMContentLoaded', async ()=>{
+document.addEventListener('DOMContentLoaded', async () => {
   await hydrate();
-  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-  if(!saved){ setTheme(matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); }
-  
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Navbar ativa
   const navLinks = $$('.nav a');
-  const sections = ['home','projects','about','contact'].map(id=>document.getElementById(id));
-  const spy = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
+  const sections = ['home','projects','about','contact'].map(id => document.getElementById(id));
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
       if(en.isIntersecting){
-        navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${en.target.id}`));
       }
-    })
+    });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-  sections.forEach(s=>spy.observe(s));
+  sections.forEach(s => spy.observe(s));
+
+  // EmailJS
+ emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  $('#contactForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const btn = form.querySelector("button[type='submit']");
+    const feedback = $('#formFeedback');
+
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+    feedback.textContent = "";
+
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+      feedback.style.color = "var(--primary-color)";
+      feedback.textContent = "Mensagem enviada com sucesso! ✅";
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      feedback.style.color = "#ff4d4d";
+      feedback.textContent = "Ocorreu um erro ao enviar a mensagem. ❌";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Enviar";
+    }
+  });
 });

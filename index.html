@@ -134,7 +134,7 @@
   <!-- Contact -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">Contate-me</h2>
+      <h2 class="section-title">Me mande uma mensagem</h2>
       <div class="contact-grid">
         <div class="card-cta reveal">
           <p>Estou disponível para serviços e novas conexões. Envie um e-mail ou chame nas redes sociais.</p>
@@ -142,15 +142,17 @@
             <a id="mailto" class="btn btn-primary" href="#">E-mail</a>
             <a id="btnContactLinkedin" class="btn btn-outline" href="#" target="_blank">LinkedIn</a>
           </div>
+           </div>
+              <form id="contactForm" class="reveal">
+                <input class="input" name="from_name" placeholder="Seu nome" required />
+                <input class="input" type="email" name="from_email" placeholder="Seu e-mail" required />
+                <textarea class="input" name="mensagem" placeholder="Sua mensagem" required></textarea>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+              </form>
+
+              <p id="formFeedback" aria-live="polite"></p>
+            </div>
         </div>
-        <form id="contactForm" class="reveal" onsubmit="handleSubmit(event)">
-          <input class="input" name="name" placeholder="Seu nome" required />
-          <input class="input" type="email" name="email" placeholder="Seu e-mail" required />
-          <textarea class="input" name="message" placeholder="Sua mensagem" required></textarea>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-      </div>
-    </div>
   </section>
 
   <footer>
