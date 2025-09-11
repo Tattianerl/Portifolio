@@ -152,16 +152,13 @@
             <a id="btnContactLinkedin" class="btn btn-outline" href="https://www.linkedin.com/in/tati-lima85" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
-
-        <form id="contactForm" class="reveal" aria-label="Formulário de contato">
-          <input class="input" name="from_name" placeholder="Seu nome" aria-label="Seu nome" required />
-          <input class="input" type="email" name="from_email" placeholder="Seu e-mail" aria-label="Seu e-mail" required />
-          <textarea class="input" name="mensagem" placeholder="Sua mensagem" aria-label="Sua mensagem" required></textarea>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-
-        <p id="formFeedback" aria-live="polite"></p>
-      </div>
+          <form id="contactForm" class="reveal" aria-label="Formulário de contato" novalidate>
+            <input class="input" name="from_name" placeholder="Seu nome" aria-label="Seu nome" required />
+            <input class="input" type="email" name="from_email" placeholder="Seu e-mail" aria-label="Seu e-mail" required />
+            <textarea class="input" name="mensagem" placeholder="Sua mensagem" aria-label="mensagem" required></textarea>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+          <p id="formFeedback" aria-live="polite"></p>
     </div>
   </section>
 

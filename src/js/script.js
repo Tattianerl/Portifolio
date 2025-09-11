@@ -152,12 +152,12 @@ async function hydrate() {
 }
 
 // ===== FORMULÁRIO COM EMAILJS =====
-const EMAILJS_PUBLIC_KEY = "S9aBJ2ISTkcA_j2kq";  // sua Public Key
-const EMAILJS_SERVICE_ID = "service_1alk4es";    // Service ID
-const EMAILJS_TEMPLATE_ID = "template_1mvb84d";  // Template ID
+const EMAILJS_PUBLIC_KEY = "S9aBJ2ISTkcA_j2kq";
+const EMAILJS_SERVICE_ID = "service_1alk4es";
+const EMAILJS_TEMPLATE_ID = "template_cwwf0zn";
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await hydrate();
+  await hydrate(); // seu hydrate
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // Navbar ativa
@@ -167,36 +167,52 @@ document.addEventListener('DOMContentLoaded', async () => {
     entries.forEach(en => {
       if(en.isIntersecting){
         navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${en.target.id}`));
-        // Atualizar título da página para SEO
         document.title = `${config.nome} | ${en.target.id.charAt(0).toUpperCase() + en.target.id.slice(1)}`;
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sections.forEach(s => spy.observe(s));
 
-  // EmailJS
+  // Inicialização EmailJS
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
-  $('#contactForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const btn = form.querySelector("button[type='submit']");
-    const feedback = $('#formFeedback');
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
 
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const btn = form.querySelector("button[type='submit']");
     btn.disabled = true;
     btn.textContent = "Enviando...";
     feedback.textContent = "";
-    feedback.setAttribute("aria-live", "polite");
+    feedback.style.opacity = 0; // animação suave
+
+    // Validação mínima
+    if (!form.from_name.value.trim() || !form.from_email.value.trim() || !form.mensagem.value.trim()) {
+      feedback.style.color = "#ff4d4d";
+      feedback.textContent = "Preencha todos os campos antes de enviar.";
+      feedback.style.opacity = 1;
+      btn.disabled = false;
+      btn.textContent = "Enviar";
+      return;
+    }
 
     try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form
+      );
+
       feedback.style.color = "var(--primary-color)";
       feedback.textContent = "Mensagem enviada com sucesso! ✅";
+      feedback.style.opacity = 1;
       form.reset();
     } catch (err) {
       console.error(err);
       feedback.style.color = "#ff4d4d";
       feedback.textContent = "Ocorreu um erro ao enviar a mensagem. ❌";
+      feedback.style.opacity = 1;
     } finally {
       btn.disabled = false;
       btn.textContent = "Enviar";
