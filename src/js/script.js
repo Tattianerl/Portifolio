@@ -6,7 +6,7 @@ const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 const config = {
   nome: 'Tatiane Lima',
   cidade: 'Rio de Janeiro RJ',
-  email: 'tattine85@hotmail.com',
+  email: 'tatilima762@gmail.com',
   github: 'https://github.com/Tattianerl',
   linkedin: 'https://www.linkedin.com/in/tati-lima85',
   instagram: 'https://www.instagram.com/limatati1/',
