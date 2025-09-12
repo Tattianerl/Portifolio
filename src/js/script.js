@@ -74,7 +74,7 @@ async function fetchGitHubProjects() {
       features: [],
       preview: repo.homepage && repo.homepage !== '' ? repo.homepage : `https://Tattianerl.github.io/${repo.name}/`,
       repo: repo.html_url,
-      linguagens: repo.language ? [repo.language] : [] // array com a(s) linguagem(ns)
+      linguagens: repo.language ? [repo.language] : [] 
     }));
   } catch (err) {
     console.error('Erro ao buscar repositórios do GitHub:', err);
@@ -164,7 +164,7 @@ const EMAILJS_SERVICE_ID = "service_1alk4es";
 const EMAILJS_TEMPLATE_ID = "template_cwwf0zn";
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await hydrate(); // seu hydrate
+  await hydrate(); 
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // Navbar ativa
@@ -192,8 +192,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     btn.disabled = true;
     btn.textContent = "Enviando...";
     feedback.textContent = "";
-    feedback.style.opacity = 0; // animação suave
-
+    feedback.style.opacity = 0; 
+    
     // Validação mínima
     if (!form.from_name.value.trim() || !form.from_email.value.trim() || !form.mensagem.value.trim()) {
       feedback.style.color = "#ff4d4d";

@@ -10,6 +10,30 @@ body {
 }
 .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
 
+/* ================= ESPAÇAMENTO DAS SEÇÕES ================= */
+:root {
+  --section-space: 40px;   
+  --section-space-lg: 64px; 
+}
+
+section {
+  padding: var(--section-space) 0; 
+}
+
+.hero .container {
+  padding: var(--section-space-lg) 20px var(--section-space);
+}
+
+
+.contact {
+  padding: var(--section-space-lg) 0;
+}
+
+
+footer { 
+  padding: 20px 0 28px; 
+}
+
 /* ================= TEMAS ================= */
 /* Tema Escuro */
 :root {
@@ -237,7 +261,7 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 /* ================= ABOUT ================= */
 .about { display: grid; grid-template-columns: 1fr minmax(300px, 1.2fr); gap: 26px; align-items: start; }
 .about .panel { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 16px;}
- #aboutText {color: var(--muted);}
+ #aboutText {color: var(--muted); display: flex; justify-content: space-between; gap: 12px; border: 1px dashed var(--card-border); border-radius: 12px; padding: 10px 12px; }
 .list { display: grid; gap: 10px; }
 .kv { display: flex; justify-content: space-between; gap: 12px; border: 1px dashed var(--card-border); border-radius: 12px; padding: 10px 12px; }
 .kv strong { font-weight: 600; }
@@ -249,7 +273,7 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 .tl-item h4 { margin: 0 0 4px; }
 .tl-item small { color: var(--muted); }
 .tl-list { margin-top: 8px; padding-left: 20px; color: var(--muted); }
-.tl-list li { list-style-type: disc; }
+.tl-list li { list-style-type: none; }
 
 /* ================= CONTACT ================= */
 .contact-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap: 20px; }
