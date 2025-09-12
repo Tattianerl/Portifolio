@@ -81,40 +81,35 @@ body.light-theme {
   --icon-hover: #6c63ff;
   --hero-kicker: #6c63ff;
   --subtitle-color: #7a7c92;
-
-
 }
-/* ================= MODO LIGHT ================= */
+
+/* ================= MODO LIGHT EXTRA ================= */
 body.light-theme .card {
   background: var(--card);          
   border: 1px solid var(--card-border);
 }
+body.light-theme .card h3 { color: #6c63ff; }
+body.light-theme .card p { color: #4a4a5c; }
+body.light-theme .features { color: #627860; }
+body.light-theme .btn-whatsapp { border: 1px solid var(--btn-outline-border);}
+body.light-theme .section-sub { color: #231e15; margin-bottom: 26px; }
+body.light-theme .subtitle { color: #231e15; margin-bottom: 26px; }
+body.light-theme footer { color: #231e15;}
+body.light-theme .kicker { color: rgb(95, 75, 180); }
+body.light-theme #aboutText {color: #231e15;} 
 
 
-body.light-theme .card h3 {
-  color: #6c63ff;               
-}
-
-body.light-theme .card p {
-  color: #4a4a5c;                    
-}
-
-body.light-theme .features {
-  color: #627860;                     
-}
-
+/* ================= PILLS ================= */
 /* Modo claro */
 :root {
   --pill-bg: rgba(35,196,227,.15);
   --pill-text: #0077aa;
 }
-
 /* Modo escuro */
 [data-theme="dark"] {
   --pill-bg: rgba(35,196,227,.15);
   --pill-text: #c9f2fb;
 }
-
 .pill {
   display: inline-block;
   padding: 4px 10px;
@@ -125,11 +120,9 @@ body.light-theme .features {
   color: var(--pill-text);
 }
 
-
 /* ================= LINKS E ÍCONES ================= */
 body a { color: var(--link-color); transition: color 0.3s; }
 body a:hover { color: var(--link-hover); }
-
 .social-icons a i, .hero-meta a i {
   color: var(--icon-color);
   transition: color 0.3s, transform 0.2s, filter 0.2s;
@@ -166,11 +159,61 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 .cta { margin-top: 22px; display:flex; gap:12px; flex-wrap: wrap; }
 
 /* ================= BOTÕES ================= */
-.btn { appearance:none; border:none; cursor:pointer; text-decoration:none; padding:12px 18px; border-radius: 14px; font-weight:600; transition: background 0.3s, color 0.3s, transform 0.2s; }
-.btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-text); box-shadow: 0 6px 20px rgba(108,99,255,.35); }
-.btn-outline { background: var(--btn-outline-bg); border: 1px solid var(--btn-outline-border); color: var(--btn-outline-text); }
-.btn-ghost { background: transparent; border:1px solid var(--card-border); color: var(--text); }
-.btn:hover { transform: translateY(-2px); }
+.btn,
+.btn-whatsapp {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Botão primário */
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: 0 6px 20px rgba(108,99,255,.35);
+}
+
+/* Botão contorno */
+.btn-outline {
+  background: var(--btn-outline-bg);
+  border: 1px solid var(--btn-outline-border);
+  color: var(--btn-outline-text);
+}
+
+/* Botão ghost */
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+}
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: #25D366;
+  font-weight: 600;
+}
+
+.btn:hover,
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+}
+
+/* Foco (acessibilidade) */
+.btn:focus,
+.btn-whatsapp:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
 
 /* ================= HERO CARD / PROFILE ================= */
 .hero-card { display:flex; flex-direction:column; justify-content:center; text-align:center; align-items:center; gap: 2rem; background: var(--card); padding:2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow); transition: all 0.3s ease; }
@@ -189,11 +232,12 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 .card p { color: var(--muted); font-size:14px; margin:0 0 8px; min-height: 42px; }
 .features { margin: 10px 0 14px; padding-left:18px; color: var(--muted); font-size:14px; }
 .card-actions { display:flex; gap:10px; flex-wrap:wrap; }
-.card .btn { padding:10px 14px; border-radius:12px; }
+.card .btn { padding:10px 14px; border-radius:12px; font-size: 0.9rem; }
 
 /* ================= ABOUT ================= */
 .about { display: grid; grid-template-columns: 1fr minmax(300px, 1.2fr); gap: 26px; align-items: start; }
-.about .panel { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.about .panel { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 16px;}
+ #aboutText {color: var(--muted);}
 .list { display: grid; gap: 10px; }
 .kv { display: flex; justify-content: space-between; gap: 12px; border: 1px dashed var(--card-border); border-radius: 12px; padding: 10px 12px; }
 .kv strong { font-weight: 600; }
@@ -215,19 +259,8 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 textarea.input { min-height: 120px; resize: vertical; }
 
 /* ================= Formulario ================= */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-}
-
-.form-feedback {
-  margin-top: 12px;
-  font-size: 14px;
-  color: var(--text);
-  min-height: 18px;
-}
-
+.form-group { display: flex; flex-direction: column; margin-bottom: 16px; }
+.form-feedback { margin-top: 12px; font-size: 14px; color: var(--text); min-height: 18px; }
 
 /* ================= FOOTER ================= */
 footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: var(--muted); text-align:center; }
@@ -243,5 +276,44 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
   .card { grid-column: span 12; }
   .nav { display:none; }
 }
+@media (max-width: 480px) {
+  .btn,
+  .btn-whatsapp {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .card .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* ================= ÍCONES DE LINGUAGENS NOS PROJETOS ================= */
+.project-icons {
+  display: flex;
+  flex-wrap: wrap;      
+  gap: 8px;             
+  margin: 10px 0;       
+  align-items: center;  
+}
 
+.project-icons i {
+  font-size: 28px;      
+  transition: transform 0.2s, filter 0.2s; 
+}
 
+.project-icons i:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.2));
+}
+
+@media (max-width: 640px) {
+  .project-icons {
+    justify-content: flex-start; 
+  }
+  
+  .project-icons i {
+    font-size: 24px; 
+  }
+}

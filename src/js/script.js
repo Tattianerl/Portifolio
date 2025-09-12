@@ -74,7 +74,7 @@ async function fetchGitHubProjects() {
       features: [],
       preview: repo.homepage && repo.homepage !== '' ? repo.homepage : `https://Tattianerl.github.io/${repo.name}/`,
       repo: repo.html_url,
-      linguagem: repo.language
+      linguagens: repo.language ? [repo.language] : [] // array com a(s) linguagem(ns)
     }));
   } catch (err) {
     console.error('Erro ao buscar repositórios do GitHub:', err);
@@ -83,7 +83,7 @@ async function fetchGitHubProjects() {
 }
 
 async function hydrate() {
-  // Identidade
+  // ===== IDENTIDADE =====
   $('#brand-name').textContent = config.nome;
   document.title = `Portfólio - ${config.nome}`;
   $('#headline').textContent = `${config.nome} Desenvolvedora Front-end.`;
@@ -92,13 +92,13 @@ async function hydrate() {
   $('#allProjectsLink').href = config.allProjects;
   $('#btnCV').href = $('#btnCVTop').href = config.cv;
   $('#lnkGithub').href = $('#btnGithub').href = config.github;
-  $('#lnkLinkedin').href = $('#btnLinkedin').href = $('#btnContactLinkedin').href = config.linkedin;
+  $('#lnkLinkedin').href = $('#btnLinkedin').href = config.linkedin;
   if(config.instagram) $('#lnkInstagram').href = $('#btnInstagram').href = config.instagram;
   $('#mailto').href = `mailto:${config.email}`;
   $('#footYear').textContent = new Date().getFullYear();
   $('#footName').textContent = config.nome;
 
-  // Formação
+  // ===== FORMAÇÃO =====
   const eduWrap = $('#eduList'); eduWrap.innerHTML = '';
   config.formacoes.forEach(f => {
     const el = document.createElement('div'); el.className='tl-item';
@@ -106,7 +106,7 @@ async function hydrate() {
     eduWrap.appendChild(el);
   });
 
-  // Experiências
+  // ===== EXPERIÊNCIAS =====
   const expWrap = $('#expList'); expWrap.innerHTML = '';
   config.experiencias.forEach(exp => {
     const el = document.createElement('div'); el.className='tl-item';
@@ -114,7 +114,7 @@ async function hydrate() {
     expWrap.appendChild(el);
   });
 
-  // Cursos
+  // ===== CURSOS =====
   const cWrap = $('#courseList'); cWrap.innerHTML = '';
   config.cursos.forEach(c => {
     const el = document.createElement('div'); el.className = 'tl-item';
@@ -122,7 +122,7 @@ async function hydrate() {
     cWrap.appendChild(el);
   });
 
-  // Projetos
+  // ===== PROJETOS =====
   const grid = $('#projectsGrid');
   grid.innerHTML = 'Carregando projetos...';
   const projetos = await fetchGitHubProjects();
@@ -137,11 +137,17 @@ async function hydrate() {
     const card = document.createElement('article');
     card.className = 'card reveal';
     card.setAttribute('aria-label', `Projeto ${p.titulo}`);
+
+    // Gerar ícones de todas as linguagens
+    const iconsHTML = p.linguagens.length
+      ? p.linguagens.map(l => `<i class="${langIcons[l] || 'devicon-code-plain'}" aria-label="Linguagem ${l}" style="font-size:28px; margin-right:5px;"></i>`).join('')
+      : '';
+
     card.innerHTML = `
       <small class="pill">Projeto</small>
       <h3>${p.titulo}</h3>
       <p>${p.descricao}</p>
-      ${p.linguagem ? `<i class="${langIcons[p.linguagem] || 'devicon-code-plain'}" aria-label="Linguagem ${p.linguagem}" style="font-size:28px; margin-right:5px;"></i>` : ''}
+      <div class="project-icons">${iconsHTML}</div>
       <div class="card-actions">
         <a class="btn btn-outline" href="${p.preview}" target="_blank" rel="noopener noreferrer" role="button" aria-label="Ver prévia de ${p.titulo}">Prévia do Projeto</a>
         <a class="btn btn-primary" href="${p.repo}" target="_blank" rel="noopener noreferrer" role="button" aria-label="Ver repositório de ${p.titulo}">Repositório</a>
@@ -150,6 +156,7 @@ async function hydrate() {
     io.observe(card);
   });
 }
+
 
 // ===== FORMULÁRIO COM EMAILJS =====
 const EMAILJS_PUBLIC_KEY = "S9aBJ2ISTkcA_j2kq";
