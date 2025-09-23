@@ -78,7 +78,7 @@ portifolio-frontend/
 ## 📌 Observações
 
 - Os **projetos** exibidos são os mais recentes do meu GitHub, com limite de 6 cards na tela inicial.   
-- O **formulário de contato** não envia emails de forma real, mas pode ser integrado a um back-end ou serviço como EmailJS.  
+- O **formulário de contato** envia emails de forma real e está integrado a um back-end ou serviço como EmailJS.  
 - ⚠️ **Observação:** Este portfólio ainda **não está finalizado** e continuará sendo atualizado com novos projetos, melhorias visuais e funcionalidades.
 
 
