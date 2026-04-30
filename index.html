@@ -32,7 +32,7 @@
         <a href="#about">Sobre</a>
         <a href="#contact">Contato</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre modo claro e escuro">🌙</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre modo claro e escuro"></button>
     </div>
   </header>
 
@@ -100,42 +100,57 @@
   </section>
 
   <!-- About -->
-  <section id="about" aria-labelledby="about-title">
-    <div class="container">
-      <h2 id="about-title" class="section-title">Sobre mim</h2>
-      <div class="about">
-        <!-- Painel 1 -->
-        <div class="panel reveal">
-          <p id="aboutText"></p>
-          <h3>Experiências</h3>
-          <div class="timeline" id="expList"></div>
-          <h3>Formação</h3>
-          <div class="timeline" id="eduList"></div>
-        </div>
-
-        <!-- Painel 2 -->
-        <div class="panel reveal">
-          <h3>Conecte-se comigo</h3>
-          <div class="stack">
-            <a id="btnGithub" class="btn btn-ghost" href="https://github.com/Tattianerl" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a id="btnLinkedin" class="btn btn-ghost" href="https://www.linkedin.com/in/tati-lima85" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a id="btnInstagram" class="btn btn-ghost" href="https://www.instagram.com/limatati1/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a id="btnCV" class="btn btn-primary" href="./src/assets/cv/CV_TatianeRL.pdf" target="_blank" rel="noopener noreferrer">Currículo (PDF)</a>
-          </div>
-
-          <hr class="divider">
-
-          <h3>Habilidades</h3>
-          <div class="timeline" id="courseList"></div>
-          <div class="list">
-            <div class="kv"><strong>Idioma</strong><span id="idioma1">Português — Nativo</span></div>
-            <div class="kv"><strong>Idioma</strong><span id="idioma2">Inglês — Próximos passos</span></div>
-          </div>
-        </div>
-
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <h2 id="about-title" class="section-title">Sobre mim</h2>
+    <div class="about-cards">
+      
+      <!-- Card Apresentação -->
+      <div class="card reveal">
+        <h3>Quem sou eu</h3>
+        <p id="aboutText">
+          Sou desenvolvedora Front-end apaixonada por transformar ideias em interfaces funcionais. 
+          Busco criar experiências modernas, acessíveis e performáticas.
+        </p>
       </div>
+
+      <!-- Card Experiências -->
+      <div class="card reveal">
+        <h3>Experiências</h3>
+        <div class="timeline" id="expList"></div>
+      </div>
+
+      <!-- Card Formação -->
+      <div class="card reveal">
+        <h3>Formação</h3>
+        <div class="timeline" id="eduList"></div>
+      </div>
+
+      <!-- Card Habilidades -->
+      <div class="card reveal">
+        <h3>Habilidades</h3>
+        <div class="timeline" id="courseList"></div>
+        <div class="list">
+          <div class="kv"><strong>Idioma</strong><span id="idioma1">Português — Nativo</span></div>
+          <div class="kv"><strong>Idioma</strong><span id="idioma2">Inglês — Próximos passos</span></div>
+        </div>
+      </div>
+
+      <!-- Card Redes -->
+      <div class="card reveal">
+        <h3>Conecte-se comigo</h3>
+        <div class="stack">
+          <a id="btnGithub" class="btn btn-ghost" href="https://github.com/Tattianerl" target="_blank">GitHub</a>
+          <a id="btnLinkedin" class="btn btn-ghost" href="https://www.linkedin.com/in/tati-lima85" target="_blank">LinkedIn</a>
+          <a id="btnInstagram" class="btn btn-ghost" href="https://www.instagram.com/limatati1/" target="_blank">Instagram</a>
+          <a id="btnCV" class="btn btn-primary" href="./src/assets/cv/CV_TatianeRL.pdf" target="_blank">Currículo (PDF)</a>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Contact -->
   <section id="contact" aria-labelledby="contact-title">

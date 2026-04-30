@@ -48,12 +48,35 @@ const langIcons = {
 // ===== THEME TOGGLE COM LOCALSTORAGE =====
 const toggleBtn = $('#themeToggle');
 const body = document.body;
+
+// função responsável por atualizar o ícone
+function updateThemeIcon() {
+  if (body.classList.contains('light-theme')) {
+    toggleBtn.textContent = '🌙'; 
+  } else {
+    toggleBtn.textContent = '☀️'; 
+  }
+}
+
+// carregar tema salvo
 const savedTheme = localStorage.getItem('theme');
-if(savedTheme === 'light') body.classList.add('light-theme');
+
+if (savedTheme === 'light') {
+  body.classList.add('light-theme');
+} else {
+  body.classList.remove('light-theme'); 
+}
+
+updateThemeIcon();
 
 toggleBtn.addEventListener('click', () => {
   body.classList.toggle('light-theme');
-  localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+
+  const isLight = body.classList.contains('light-theme');
+
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+  updateThemeIcon(); 
 });
 
 // ===== SCROLL REVEAL =====
@@ -129,7 +152,7 @@ async function hydrate() {
   grid.innerHTML = '';
 
   if (projetos.length === 0) {
-    grid.innerHTML = "<p>Não foi possível carregar os projetos agora. 🚧</p>";
+    grid.innerHTML = "<p>Não foi possível carregar os projetos agora.</p>";
     return;
   }
 
