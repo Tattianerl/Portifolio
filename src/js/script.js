@@ -13,10 +13,10 @@ const config = {
   cv: './src/assets/cv/CV_TatianeRL.pdf',
   allProjects: 'https://github.com/Tattianerl?tab=repositories',
   ingles: 'Próximo passos',
-  sobre: 'Sou formada em Sistemas para Internet e estou em transição de carreira para a área de tecnologia. Tenho paixão por transformar ideias em soluções digitais, com foco em desenvolvimento front-end. Atualmente, dedico-me ao aprimoramento das minhas habilidades em HTML, CSS, JavaScript e React, criando projetos práticos que unem design, usabilidade e boas práticas de código.Busco minha primeira oportunidade na área para aplicar meus conhecimentos, aprender com profissionais experientes e contribuir para o crescimento da equipe e da empresa.',
+  sobre: 'Desenvolvedora Full Stack com foco em performance e escalabilidade. Minha metodologia de trabalho integra fundamentos sólidos de engenharia de software com o uso avançado de IA Generativa, permitindo uma prototipagem rápida e a entrega de código otimizado. Especialista em React e Node.js, busco criar soluções que unem design centrado no usuário (UX) a arquiteturas de back-end robustas utilizando MySQL e MongoDB.',
   formacoes: [
     { titulo: 'Sistemas para Internet', detalhe: 'Tecnólogo', periodo: '2022 — 2024', instituicao: 'Universidade Estácio de Sá' },
-    { titulo: 'PROGRAMAÇÃO DE SISTEMAS DE INFORMAÇÃO.', detalhe: 'Certificação', periodo: '2024', instituicao: 'Universidade Estácio de Sá' },
+    { titulo: 'Programação de Sistemas de Informação', detalhe: 'Certificação', periodo: '2024', instituicao: 'Universidade Estácio de Sá' },
     { titulo: 'Certificado Profissional de UX Design do Google', detalhe: 'Certificação', periodo: '2024', instituicao: 'Coursera' },
   ],
   experiencias: [
@@ -34,15 +34,25 @@ const config = {
 // ===== ÍCONES DAS LINGUAGENS =====
 const langIcons = { 
   "JavaScript": "devicon-javascript-plain colored",
-  "Python": "devicon-python-plain colored",
   "HTML": "devicon-html5-plain colored",
   "CSS": "devicon-css3-plain colored",
+  "React": "devicon-react-original colored",
+  "Node.js": "devicon-nodejs-plain colored",
+  "MySQL": "devicon-mysql-plain colored",
+  "SQL": "fas fa-database",
+  "MariaDB": "devicon-mariadb-original colored",
+  "MongoDB": "devicon-mongodb-plain colored",
+  "Python": "devicon-python-plain colored",
   "TypeScript": "devicon-typescript-plain colored",
   "Java": "devicon-java-plain colored",
   "C#": "devicon-csharp-plain colored",
   "PHP": "devicon-php-plain colored",
   "Ruby": "devicon-ruby-plain colored",
-  "Go": "devicon-go-plain colored"
+  "Go": "devicon-go-plain colored",
+  "Engenharia de Prompt": "fas fa-terminal colored",
+  "AI": "fas fa-robot",
+  "ChatGPT": "fas fa-robot",
+  "AI Assisted": "fas fa-magic"
 };
 
 // ===== THEME TOGGLE COM LOCALSTORAGE =====
@@ -109,7 +119,7 @@ async function hydrate() {
   // ===== IDENTIDADE =====
   $('#brand-name').textContent = config.nome;
   document.title = `Portfólio - ${config.nome}`;
-  $('#headline').textContent = `${config.nome} Desenvolvedora Front-end.`;
+  $('#headline').textContent = `${config.nome} — Desenvolvedora Full Stack.`;
   $('#aboutText').textContent = config.sobre;
   $('#idioma2').textContent = `Inglês — ${config.ingles}`;
   $('#allProjectsLink').href = config.allProjects;

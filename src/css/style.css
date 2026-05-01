@@ -98,20 +98,53 @@ body.light-theme {
 }
 
 /* ================= MODO LIGHT EXTRA ================= */
-body.light-theme .card {
-  background: var(--card);          
-  border: 1px solid var(--card-border);
+body.light-theme {
+    color: #1f1f2e; 
 }
-body.light-theme .card h3 { color: #6c63ff; }
-body.light-theme .card p { color: #4a4a5c; }
-body.light-theme .features { color: #627860; }
-body.light-theme .btn-whatsapp { border: 1px solid var(--btn-outline-border);}
-body.light-theme .section-sub { color: #231e15; margin-bottom: 26px; }
-body.light-theme .subtitle { color: #231e15; margin-bottom: 26px; }
-body.light-theme footer { color: #231e15;}
-body.light-theme .kicker { color: rgb(95, 75, 180); }
-body.light-theme #aboutText { color: #231e15; } 
 
+body.light-theme .card {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+}
+
+body.light-theme .card h3 { color: var(--brand); }
+body.light-theme .card p { color: #4a4a5c; }
+
+/* Destaque para a lista de features nos projetos */
+body.light-theme .features li { color: #4a4a5c; } 
+
+body.light-theme .section-sub,
+body.light-theme .subtitle,
+body.light-theme #aboutText,
+body.light-theme footer { 
+    color: #231e15; 
+}
+
+body.light-theme .kicker { color: #5146d3; } 
+
+/* ================= NAVBAR MODO CLARO ================= */
+body.light-theme .navbar {
+    background: rgba(247, 247, 251, 0.85); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+body.light-theme .nav a {
+    color: #4a4a5c;
+}
+
+body.light-theme .nav a:hover, 
+body.light-theme .nav a.active {
+    color: var(--brand);
+    background: rgba(108, 99, 255, 0.1);
+}
+
+body.light-theme .brand { color: #1f1f2e; }
+
+body.light-theme .theme-toggle {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1f1f2e;
+}
 
 /* ================= PILLS ================= */
 .pill {
@@ -214,8 +247,25 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 }
 
 /* ================= HERO CARD / PROFILE ================= */
-.hero-card { display:flex; flex-direction:column; justify-content:center; text-align:center; align-items:center; gap: 2rem; background: var(--card); padding:2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow); transition: all 0.3s ease; }
-.hero-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); }
+.hero-card { 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center; 
+  text-align:center; 
+  align-items:center; 
+  gap: 2rem; 
+  background: var(--card); 
+  padding:2rem; 
+  border-radius: var(--radius-xl); 
+  box-shadow: var(--shadow); 
+  transition: all 0.3s ease; 
+}
+.hero-avatar { width: 120px;
+   height: 120px; 
+   border-radius: 50%; 
+   object-fit: cover; 
+   border: 2px solid var(--primary-color);
+   }
 .hero-text { max-width: 500px; }
 
 /* ================= BADGES ================= */
@@ -223,7 +273,12 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 .badge { border:1px solid var(--card-border); background: var(--surface); color: var(--text); padding:8px 12px; border-radius: 12px; font-weight:600; font-size:14px; }
 
 /* ================= PROJETOS ================= */
-.grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px;}
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(12, 1fr); 
+  gap: 30px; 
+  margin-bottom: 20px;
+}
 .card { grid-column: span 4; background: var(--card); border:1px solid var(--card-border); border-radius: var(--radius-lg); padding: 18px; transition: transform .2s ease;}
 .card:hover { transform: translateY(-4px); }
 .card h3 { margin:6px 0 6px; font-size:20px; }
@@ -233,14 +288,40 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 .card .btn { padding:10px 14px; border-radius:12px; font-size: 0.9rem; }
 
 /* ================= ABOUT ================= */
-.about { display: grid; grid-template-columns: 1fr minmax(300px, 1.2fr); gap: 26px; align-items: start; }
-.about .panel { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 16px;}
-#aboutText { color: var(--muted); display: flex; justify-content: space-between; gap: 12px; border: 1px dashed var(--card-border); border-radius: 12px; padding: 10px 12px; }
-.list { display: grid; gap: 10px; }
-.kv { display: flex; justify-content: space-between; gap: 12px; border: 1px dashed var(--card-border); border-radius: 12px; padding: 10px 12px; }
-.kv strong { font-weight: 600; }
-.divider { border-bottom: 1px solid var(--card-border); margin: 16px 0; }
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px; /* Espaço entre os cards do sobre */
+    margin-top: 30px;
+}
+body.light-theme .about .panel {
+    background: #ffffff;
+    border: 1px solid #e0e3f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 
+body.light-theme #aboutText{
+    padding: 10px;
+    background: #f8f9fa; 
+    border: 1px solid #e0e3f0; 
+    border-radius: 12px;
+    color: #1f1f2e;
+}
+body.light-theme .kv {
+    background: #f8f9fa; 
+    border: 1px solid #e0e3f0; 
+    border-radius: 12px;
+    color: #1f1f2e;
+}
+
+/* Títulos dentro do About */
+body.light-theme .kv strong {
+    color: #6c63ff; 
+}
+
+body.light-theme .divider {
+    border-bottom: 1px solid #e0e3f0;
+}
 /* ================= TIMELINE ================= */
 .timeline { display: flex; flex-direction: column; gap: 12px; }
 .tl-item { background-color: rgba(0,0,0,0.05); padding: 12px 16px; border-radius: 8px; display: flex; flex-direction: column; }
@@ -265,27 +346,21 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
 /* ================= RESPONSIVO ================= */
 @media (max-width: 920px) {
   .hero .container { grid-template-columns: 1fr; padding-top: 96px; }
-  .about { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .card { grid-column: span 6; }
-}
-@media (max-width: 640px) {
-  .card { grid-column: span 12; }
-  .nav { display:none; }
-}
-@media (max-width: 480px) {
-  .btn,
-  .btn-whatsapp {
-    font-size: 0.9rem;
-    padding: 10px 14px;
-    width: 100%;
-    margin-bottom: 8px;
+  
+  /* Ajuste aqui para o Sobre e Projetos */
+  .about-cards { grid-template-columns: 1fr; gap: 20px; } 
+  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+  
+  .card { 
+    grid-column: span 12 !important; 
+    margin-bottom: 10px; 
   }
+}
   .card .btn {
     width: 100%;
     text-align: center;
   }
-}
+
 /* ================= ÍCONES DE LINGUAGENS NOS PROJETOS ================= */
 .project-icons {
   display: flex;
@@ -313,4 +388,76 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
   .project-icons i {
     font-size: 24px; 
   }
+}
+
+/* Container das Badges */
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Estilo Base da Badge */
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color); /* Usa a cor de texto do seu tema */
+}
+
+/* Efeito Hover (ao passar o mouse) */
+.badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== CORES ESPECÍFICAS PARA CADA CATEGORIA ===== */
+
+/* Mobile & React (Azul) */
+.badge i.fa-react, .badge i.fa-mobile-alt {
+    color: #61DAFB;
+}
+
+/* Node.js & APIs (Verde) */
+.badge i.fa-node-js {
+    color: #68a063;
+}
+
+/* MySQL & MongoDB (Laranja/Dourado) */
+.badge i.fa-database, .badge i.fa-leaf {
+    color: #f29111;
+}
+
+/* AI & Prompt (Roxo/Ciano) */
+.badge i.fa-robot{
+  color: #10a37f
+}
+.badge i.fa-magic, .badge i.fa-terminal {
+    color: #a855f7; 
+    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.4));
+}
+
+/* UX & Acessibilidade (Rosa/Coral) */
+.badge i.fa-universal-access {
+    color: #ff6b6b;
+}
+
+/* Git & Versionamento (Vermelho/Laranja) */
+.badge i.fa-git-alt {
+    color: #f05032;
+}
+
+/* Ajuste para o Modo Claro (se você tiver a classe .light-theme) */
+body.light-theme .badge {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
