@@ -343,24 +343,120 @@ textarea.input { min-height: 120px; resize: vertical; }
 /* ================= FOOTER ================= */
 footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: var(--muted); text-align:center; }
 
-/* ================= RESPONSIVO ================= */
+/* ================= RESPONSIVO (MOBILE FIRST ADJUSTMENTS) ================= */
+
 @media (max-width: 920px) {
-  .hero .container { grid-template-columns: 1fr; padding-top: 96px; }
-  
-  /* Ajuste aqui para o Sobre e Projetos */
-  .about-cards { grid-template-columns: 1fr; gap: 20px; } 
-  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
-  
-  .card { 
-    grid-column: span 12 !important; 
-    margin-bottom: 10px; 
-  }
-}
-  .card .btn {
-    width: 100%;
+  /* Hero */
+  .hero .container { 
+    grid-template-columns: 1fr; 
+    padding-top: 60px; 
+    gap: 30px;
     text-align: center;
   }
 
+  .hero .subtitle {
+    margin: 0 auto;
+  }
+
+  .cta {
+    justify-content: center;
+  }
+
+  /* Grids */
+  .grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+  }
+
+  .card { 
+    grid-column: span 12 !important; 
+  }
+
+  /* About */
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Contact */
+  .contact-grid { 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 30px 0;
+  }
+
+  h1 {
+    font-size: 28px; 
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  /* Navbar */
+  .nav { 
+    display: none; 
+  }
+
+  .nav-inner {
+    padding: 10px 0;
+  }
+
+  /* Hero Avatar */
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-card {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  /* Badges */
+  .badges {
+    justify-content: center;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn,
+  .btn-whatsapp,
+  #btnCVTop,
+  #btnCV {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block; 
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .tl-item {
+    padding: 10px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 /* ================= ÍCONES DE LINGUAGENS NOS PROJETOS ================= */
 .project-icons {
   display: flex;
@@ -408,9 +504,9 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    background: rgba(255, 255, 255, 0.05); 
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-color); /* Usa a cor de texto do seu tema */
+    color: var(--text-color); 
 }
 
 /* Efeito Hover (ao passar o mouse) */
@@ -456,7 +552,7 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
     color: #f05032;
 }
 
-/* Ajuste para o Modo Claro (se você tiver a classe .light-theme) */
+
 body.light-theme .badge {
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.1);
