@@ -19,15 +19,16 @@
     <div class="container nav-inner">
       <div class="brand">
         <img src="./src/assets/img/logo.png" alt="Logo pessoal de Tatiane Lima" class="logo" />
-        <!--<span class="brand-dot" aria-hidden="true"></span>-->
         <span id="brand-name">Tatiane Lima</span>
       </div>
-      <nav class="nav" aria-label="Seções do site">
-        <a href="#home" class="active">Home</a>
-        <a href="#projects">Projetos</a>
-        <a href="#about">Sobre</a>
-        <a href="#contact">Contato</a>
-      </nav>
+      <nav aria-label="Seções do site">
+      <ul class="nav" id="navMenu">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
       <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre modo claro e escuro"></button>
     </div>
   </header>
@@ -110,8 +111,8 @@
       <!-- Card Apresentação -->
       <div class="card reveal">
         <h3>Quem sou eu</h3>
-        <p class="timeline" id="aboutText">
-          Sou desenvolvedora Front-end apaixonada por transformar ideias em interfaces funcionais. 
+        <p class="card reveal" id="aboutText">
+          Sou Desenvolvedora Full Stack apaixonada por transformar ideias em interfaces funcionais. 
           Busco criar experiências modernas, acessíveis e performáticas.
         </p>
       </div>
@@ -133,8 +134,8 @@
         <h3>Habilidades</h3>
         <div class="timeline" id="courseList"></div>
         <div class="list">
-          <div class="kv"><strong>Idioma</strong><span id="idioma1">Português — Nativo</span></div>
-          <div class="kv"><strong>Idioma</strong><span id="idioma2">Inglês — Próximos passos</span></div>
+          <div class="kv"><strong>Idioma:</strong><span id="idioma1"> Português — Nativo</span></div>
+          <div class="kv"><strong>Idioma: </strong><span id="idioma2"> Inglês — Próximos passos</span></div>
         </div>
       </div>
 
