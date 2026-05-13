@@ -88,6 +88,25 @@ toggleBtn.addEventListener('click', () => {
 
   updateThemeIcon(); 
 });
+// ===== NavMenu =====
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+
+  const icon = menuToggle.querySelector("i");
+
+  if (navMenu.classList.contains("active")) {
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-xmark");
+  } else {
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+  }
+});
+
+
 
 // ===== SCROLL REVEAL =====
 const io = new IntersectionObserver((entries) => {

@@ -21,12 +21,18 @@
 <body>
   <!-- Navbar -->
   <header class="navbar" aria-label="Barra de navegação principal">
-    <div class="container nav-inner">
-      <div class="brand">
-        <img src="./src/assets/img/logo.png" alt="Logo pessoal de Tatiane Lima" class="logo" />
-        <span id="brand-name">Tatiane Lima</span>
-      </div>
-      <nav aria-label="Seções do site">
+  <div class="container nav-inner">
+
+    <div class="brand">
+      <img
+        src="./src/assets/img/logo.png"
+        alt="Logo pessoal de Tatiane Lima"
+        class="logo"
+      />
+      <span id="brand-name">Tatiane Lima</span>
+    </div>
+
+    <nav aria-label="Seções do site">
       <ul class="nav" id="navMenu">
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#projects">Projetos</a></li>
@@ -34,10 +40,25 @@
         <li><a href="#contact">Contato</a></li>
       </ul>
     </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre modo claro e escuro"></button>
-    </div>
-  </header>
 
+    <div class="nav-actions">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Abrir menu"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Alternar entre modo claro e escuro"
+      ></button>
+    </div>
+
+  </div>
+</header>
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="container">
