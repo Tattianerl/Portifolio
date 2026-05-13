@@ -12,7 +12,7 @@ const config = {
   instagram: 'https://www.instagram.com/limatati1/',
   cv: './src/assets/cv/CV_TatianeRL.pdf',
   allProjects: 'https://github.com/Tattianerl?tab=repositories',
-  ingles: 'Próximo passos',
+  ingles: 'Próximos passos',
   sobre: 'Desenvolvedora Full Stack com foco em performance e escalabilidade. Minha metodologia de trabalho integra fundamentos sólidos de engenharia de software com o uso avançado de IA Generativa, permitindo uma prototipagem rápida e a entrega de código otimizado. Especialista em React e Node.js, busco criar soluções que unem design centrado no usuário (UX) a arquiteturas de back-end robustas utilizando MySQL e MongoDB.',
   formacoes: [
     { titulo: 'Sistemas para Internet', detalhe: 'Tecnólogo', periodo: '2022 — 2024', instituicao: 'Universidade Estácio de Sá' },
