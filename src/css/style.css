@@ -201,9 +201,39 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 10px 0 14px; }
 .brand .logo { height: 32px; width: auto; }
 .nav { display:flex; gap:20px; list-style: none; }
 .nav a { color: #7c66ec; text-decoration:none; font-weight:500; padding:8px 12px; border-radius:10px; }
-.nav a:hover, .nav a.active { color: var(--text); background: rgba(108,99,255,.12); }
-.theme-toggle { border:1px solid rgba(255,255,255,.12); background:transparent; color: #7c66ec; border-radius:12px; padding:8px 12px; cursor:pointer; }
+.nav a:hover, .nav a.active { color: var(--text); background: rgba(108,99,255,.12); 
+}
 
+.theme-toggle {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid var(--card-border);
+
+  background: transparent;
+
+  color: #7c66ec;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(108,99,255,.12);
+}
+.theme-toggle i {
+  font-size: 1rem;
+}
 /* ================= HERO ================= */
 .hero { position: relative; overflow: hidden; }
 .hero::before { content:""; position:absolute; inset:-20% -10% auto -10%; height:70%; background: radial-gradient(600px 300px at 10% 40%, rgba(108,99,255,.25), transparent 60%), radial-gradient(500px 250px at 90% 30%, rgba(35,196,227,.18), transparent 60%); pointer-events:none; }
@@ -616,8 +646,8 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
 
   color: var(--text);
 
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
 
   border-radius: 12px;
 
@@ -752,7 +782,7 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--card-border); color: 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 8px 0;
   }
   .nav-actions {
     display: flex;
