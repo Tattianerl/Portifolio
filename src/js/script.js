@@ -20,7 +20,7 @@ const config = {
     { titulo: 'Certificado Profissional de UX Design do Google', detalhe: 'Certificação', periodo: '2024', instituicao: 'Coursera' },
   ],
   experiencias: [
-    { cargo: 'Vendedora/Atendente de loja', periodo: '2011 — Atual', empresa: 'Di Santinni', desc: ['Minha experiência em vendas me ajudou a desenvolver uma escuta ativa, empatia e comunicação eficiente — habilidades que uso diariamente para criar projetos digitais que realmente atendam às necessidades das pessoas. Saber ouvir, entender problemas e oferecer soluções é algo que levo do mundo das vendas para o desenvolvimento front-end.'] },
+    { cargo: 'Vendedora/Atendente de loja', periodo: '2011 — Atual', empresa: 'Di Santinni', desc: ['Minha experiência em vendas me ajudou a desenvolver uma escuta ativa, empatia e comunicação eficiente — habilidades que uso diariamente para criar projetos digitais que realmente atendam às necessidades das pessoas. Saber ouvir, entender problemas e oferecer soluções é algo que levo do mundo das vendas para o desenvolvimento Full Stack.'] },
   ],
   cursos: [
     { nome: "Marketing Pessoal", instituicao: "DIO", periodo: "10/2024" },
