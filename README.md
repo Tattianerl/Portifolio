@@ -1,6 +1,8 @@
 # Portfólio de Tatiane Lima
 
-Bem-vindo ao meu **portfólio online**, desenvolvido para apresentar meus projetos, habilidades e experiências como Desenvolvedora Front-end. Este projeto demonstra conhecimentos em **HTML, CSS, JavaScript, React** e **React Native**, com foco em **UI moderna, responsividade e boas práticas de desenvolvimento**.
+Bem-vindo(a) ao meu portfólio online! Este espaço foi desenvolvido para apresentar de forma clara meus projetos, habilidades técnicas e evolução como **Desenvolvedora de Software Júnior**. 
+
+O projeto consolida meus conhecimentos em desenvolvimento focado em experiências modernas, responsividade, arquitetura limpa e alta performance.
 
 ---
 ## 📱 Acesse meu Portfólio pelo QR Code  
