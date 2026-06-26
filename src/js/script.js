@@ -13,7 +13,7 @@ const config = {
   cv: './src/assets/cv/CV_TatianeRL.pdf',
   allProjects: 'https://github.com/Tattianerl?tab=repositories',
   ingles: 'Próximos passos',
-  sobre: 'Desenvolvedora Full Stack com foco em performance e escalabilidade. Minha metodologia de trabalho integra fundamentos sólidos de engenharia de software com o uso avançado de IA Generativa, permitindo uma prototipagem rápida e a entrega de código otimizado. Especialista em React e Node.js, busco criar soluções que unem design centrado no usuário (UX) a arquiteturas de back-end robustas utilizando MySQL e MongoDB.',
+  sobre: 'Desenvolvedora de Software Júnior focada na construção de soluções completas, da interface ao banco de dados. Minha metodologia de trabalho integra fundamentos de engenharia de software com o uso de IA Generativa para prototipagem rápida e otimização de código. Desenvolvo aplicações modernas com React, React Native e Node.js, unindo design centrado no usuário (UX/Acessibilidade) a bancos de dados SQL e NoSQL (MySQL e MongoDB).',
   formacoes: [
     { titulo: 'Sistemas para Internet', detalhe: 'Tecnólogo', periodo: '2022 — 2024', instituicao: 'Universidade Estácio de Sá' },
     { titulo: 'Programação de Sistemas de Informação', detalhe: 'Certificação', periodo: '2024', instituicao: 'Universidade Estácio de Sá' },
