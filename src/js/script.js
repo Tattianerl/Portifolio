@@ -5,6 +5,7 @@ const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 // ===== CONFIGURAÇÃO DO PORTFÓLIO =====
 const config = {
   nome: 'Tatiane Lima',
+  titulo: "Desenvolvedora Software / Full Stack Júnior.",
   cidade: 'Rio de Janeiro RJ',
   email: 'tatilima762@gmail.com',
   github: 'https://github.com/Tattianerl',
@@ -138,7 +139,7 @@ async function hydrate() {
   // ===== IDENTIDADE =====
   $('#brand-name').textContent = config.nome;
   document.title = `Portfólio - ${config.nome}`;
-  $('#headline').textContent = `${config.nome} — Desenvolvedora Full Stack.`;
+  $('#headline').textContent = `${config.nome} — ${config.titulo}`;
   $('#aboutText').textContent = config.sobre;
   $('#idioma2').textContent = `Inglês — ${config.ingles}`;
   $('#allProjectsLink').href = config.allProjects;
